@@ -5,6 +5,7 @@
 using namespace std;
 
 int main() {
+  string user_Input;
   srand(time(0));
 
   ifstream file("answers.txt"); // Open the file 
@@ -16,6 +17,7 @@ int main() {
 
   string line;
   int current_Line = 0;
+
   cout << "\nWelcome to 8Ball!\n\nPlease write your question here: ";
   cin >> user_Input;
 
