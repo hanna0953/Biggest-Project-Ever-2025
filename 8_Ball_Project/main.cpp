@@ -19,7 +19,6 @@ int main() {
 
   string line;
   int current_Line = 0;
-
   cout << "\nWelcome to 8Ball!\n\nPlease write your question here: ";
   cin >> user_Input;
 
