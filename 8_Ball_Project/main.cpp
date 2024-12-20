@@ -9,8 +9,6 @@ int main() {
   int randomNum = rand() % 20 + 1;
   string user_Input;
   
-
-
   cout << "\nWelcome to 8Ball!\n\nPlease write your question here: ";
   cin >> user_Input;
   
