@@ -5,10 +5,12 @@
 using namespace std;
 
 int main() {
-  string user_Input;  
-  int randomNum = rand() % 21;
-  
   srand(time(0));
+<<<<<<< HEAD
+  int randomNum = rand() % 20 + 1;
+  string user_Input;
+  
+=======
 
   ifstream file("answers.txt"); // Open the file 
   if (!file) 
@@ -19,6 +21,7 @@ int main() {
 
   string line;
   int current_Line = 0;
+>>>>>>> refs/remotes/origin/main
   cout << "\nWelcome to 8Ball!\n\nPlease write your question here: ";
   cin >> user_Input;
 
@@ -32,4 +35,5 @@ int main() {
       } 
    } 
   return 0;
+  //test123
 } 
