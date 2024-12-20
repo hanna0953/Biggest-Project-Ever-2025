@@ -11,7 +11,8 @@ namespace eight_Ball
             string user_Input = Console.Readline();
             Random rnd = new Random();
             int eight_Ball_Rnd_Number = rnd.Next(1, 21);
-            Console.WriteLine("This is a random number " + eight_Ball_Number);   
+            Console.WriteLine("This is a random number for test" + eight_Ball_Number);   
         }
     }
 }
+///test12 by daniel comment
