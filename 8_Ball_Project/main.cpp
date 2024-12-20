@@ -5,19 +5,18 @@
 using namespace std;
 
 int main() {
-
   srand(time(0));
   int randomNum = rand() % 20 + 1;
+  int current_Line = 0;
   string user_Input;
+  string line;
+
   ifstream file("answers.txt"); // Open the file 
   if (!file) 
   { 
     cerr << "Unable to open file answers.txt\n"; 
     return 1; // Exit if the file cannot be opened 
   } 
-
-  string line;
-  int current_Line = 0;
 
   cout << "\nWelcome to 8Ball!\n\nPlease write your question here: ";
   cin >> user_Input;
@@ -32,7 +31,5 @@ int main() {
       } 
    }
   
-   
   return 0;
-  //test123
 } 
