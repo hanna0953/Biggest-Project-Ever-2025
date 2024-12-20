@@ -1,7 +1,11 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 int main() {
-  cout << "test13";
+  string user_Input;
+
+  cout << "Welcome to 8Ball!\nPlease write your question here: ";
+  cin >> user_Input;
   return 0;
 } 
