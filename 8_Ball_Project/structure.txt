@@ -1,1 +1,10 @@
-test 8
+What we want the program to do:
+User inputs a string, gets random response
+
+Generate random number from 1-20
+1-10 will be positive answers
+11-15 will be neutral
+16-20 will be negative
+
+Also should not give the same answer twice in a row.
+Take the answers from a file.
