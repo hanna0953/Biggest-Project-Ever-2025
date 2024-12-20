@@ -1,14 +1,20 @@
 #include <iostream>
-#include <string.h>
+#include <string>
+#include <fstream>
+
 using namespace std;
 
 int main() {
-  string user_Input;
   srand(time(0));
   int randomNum = rand() % 20 + 1;
+  string user_Input;
+  
+  srand(time(0));
 
-  cout << "Welcome to 8Ball!\nPlease write your question here: ";
+  cout << "\nWelcome to 8Ball!\n\nPlease write your question here: ";
   cin >> user_Input;
+  
+  
 
   return 0;
 } 
