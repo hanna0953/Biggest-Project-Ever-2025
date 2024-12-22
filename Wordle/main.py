@@ -11,8 +11,9 @@ with path_To_Words.open('r') as words:
     total_Word_Count = len(content)
     random_Number = random.randint(0, total_Word_Count - 1)
     game_Word = content[random_Number]
-    print(game_Word)
-    words.close()
+    game_Word_Characters = list(game_Word[:-1])
+    print (game_Word_Characters)
+    words.close()  
 
 print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
 
