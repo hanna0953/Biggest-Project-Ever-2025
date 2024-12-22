@@ -35,6 +35,16 @@ while True:
 
 # Converts user input to Uppercase 
 user_Word_Characters = list(user_Word.upper())
-print(user_Word_Characters)
+# print(user_Word_Characters)
 
-#list(user_Word)
+# print(game_Word_Characters == user_Word_Characters)
+# def compare(game_Word_Characters, user_Word_Characters):
+#     for x, y in zip(game_Word_Characters, user_Word_Characters):
+#         if x == y:
+#             print(x)
+#         else:
+#             print('_')
+
+# set(game_Word_Characters).intersection(user_Word_Characters)
+
+print(list(set(game_Word_Characters) & set(user_Word_Characters)))
