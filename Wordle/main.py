@@ -1,8 +1,10 @@
 # Data for the five letter words has been aquired from previous WORDLE games 
 # available at https://www.nytimes.com/games/wordle/index.html
+
 from pathlib import Path
 import re
 import random
+import itertools
 
 user_Round_Count = 0
 
@@ -37,14 +39,16 @@ while True:
 user_Word_Characters = list(user_Word.upper())
 # print(user_Word_Characters)
 
-# print(game_Word_Characters == user_Word_Characters)
-# def compare(game_Word_Characters, user_Word_Characters):
-#     for x, y in zip(game_Word_Characters, user_Word_Characters):
-#         if x == y:
-#             print(x)
-#         else:
-#             print('_')
-
-# set(game_Word_Characters).intersection(user_Word_Characters)
-
-print(list(set(game_Word_Characters) & set(user_Word_Characters)))
+# Check for similarities between Game Word and User Word
+matches = [i for i in game_Word_Characters if i in user_Word_Characters]
+for i in range(5):
+    try:
+        if i < 4:
+            print(matches[i], end=" ")
+        else:
+            print(matches[i])
+    except IndexError:
+        if i < 4:
+            print(" _ ", end=" ")
+        else:
+            print(" _ ")
