@@ -17,18 +17,14 @@ with path_To_Words.open('r') as words:
 
 print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
 
-# user_Word = input("Write your guess here: ")
-# if user_Word == 5:
-#     print("Your guess: " + user_Word)
-# elif not re.match(r"^[A-Za-z]+$", user_Word):
+# TO DO add this to user input restriction
+# if not re.match(r"^[A-Za-z]+$", user_Word):
 #     print("\nWrong input, please write only letters A-Z\n")
-# else:
-#     print("\nWrong input, your word should be 5 letter long!\n")
 
 while True:
     try:
-        user_word = input('Write your guess here: ')
-        if len(user_word) != 5:
+        user_Word = input('Write your guess here: ')
+        if len(user_Word) != 5:
             raise ValueError
         break 
     except ValueError:
