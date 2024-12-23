@@ -4,7 +4,6 @@
 from pathlib import Path
 import re
 import random
-import itertools
 
 user_Round_Count = 0
 
@@ -13,11 +12,11 @@ path_To_Words = Path(__file__).with_name('fiveletterwords.txt')
 with path_To_Words.open('r') as words:
     content = words.readlines()
     total_Word_Count = len(content)
-    random_Number = random.randint(0, total_Word_Count - 1)
-    game_Word = content[random_Number]
-    game_Word_Characters = list(game_Word[:-1])
-    print(game_Word_Characters)
     words.close()  
+random_Number = random.randint(0, total_Word_Count - 1)
+game_Word = content[random_Number]
+game_Word_Characters = list(game_Word[:-1])
+print(game_Word_Characters)
 
 print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
 
@@ -49,6 +48,6 @@ for i in range(5):
             print(matches[i])
     except IndexError:
         if i < 4:
-            print(" _ ", end=" ")
+            print("_ ", end=" ")
         else:
-            print(" _ ")
+            print("_ ")
