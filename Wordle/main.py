@@ -56,3 +56,8 @@ for i in range(5):
 print(Fore.YELLOW + 'Color for good letters on wrong spot')
 print(Fore.GREEN + 'Color for good letters on good spot')
 print(Style.RESET_ALL)
+
+# TO DO 
+# Add an array for wrong letters
+# For example if user guessed "A" and it was wrong do:
+# B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
