@@ -1,6 +1,6 @@
 # Data for the five letter words has been aquired from previous WORDLE games 
 # available at https://www.nytimes.com/games/wordle/index.html
-
+from colorama import Fore, Style
 from pathlib import Path
 import re
 import random
@@ -51,3 +51,8 @@ for i in range(5):
             print("_ ", end=" ")
         else:
             print("_ ")
+
+# Colors for letters (for future)
+print(Fore.YELLOW + 'Color for good letters on wrong spot')
+print(Fore.GREEN + 'Color for good letters on good spot')
+print(Style.RESET_ALL)
