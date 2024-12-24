@@ -43,14 +43,14 @@ matches = [i for i in game_Word_Characters if i in user_Word_Characters]
 for i in range(5):
     try:
         if i < 4:
-            print(matches[i], end=" ")
+            print(Fore.GREEN + matches[i], end=" ")
         else:
-            print(matches[i])
+            print(Fore.GREEN  + matches[i])
     except IndexError:
         if i < 4:
-            print("_ ", end=" ")
+            print(Fore.RED + "_ ", end=" ")
         else:
-            print("_ ")
+            print(Fore.RED + "_ ")
 
 # Colors for letters (for future)
 print(Fore.YELLOW + 'Color for good letters on wrong spot')
