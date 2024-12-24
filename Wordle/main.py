@@ -6,6 +6,23 @@ from pathlib import Path
 
 from colorama import Fore, Style
 
+
+def check_User_Input():
+    while True:
+        try:
+            user_Word = input("Write your guess here: ")
+            if len(user_Word) != 5:
+                raise ValueError
+            elif not re.match(r"^[A-Za-z]+$", user_Word):
+                raise Exception
+            user_Word_Characters = list(user_Word.upper())
+            return user_Word_Characters
+        except ValueError:
+            print("\nWrong input, your word should be 5 letters long!\n")
+        except Exception:
+            print("\nWrong input, please write only letters A-Z\n")
+
+
 user_Round_Count = 0
 
 # Random word generation and converts it to a list of characters
@@ -21,22 +38,11 @@ print(game_Word_Characters)
 
 print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
 
+
 # Makes user add his word and checks if it's 5 letters
-while True:
-    try:
-        user_Word = input("Write your guess here: ")
-        if len(user_Word) != 5:
-            raise ValueError
-        elif not re.match(r"^[A-Za-z]+$", user_Word):
-            raise Exception
-        break
-    except ValueError:
-        print("\nWrong input, your word should be 5 letters long!\n")
-    except Exception:
-        print("\nWrong input, please write only letters A-Z\n")
+user_Word_Characters = check_User_Input()
 
 # Converts user input to Uppercase
-user_Word_Characters = list(user_Word.upper())
 # print(user_Word_Characters)
 # FIXME when imputing completely wrong letter, fails to check for the elif, still checks for if
 # TODO make it so duplicates dont count for the elif check
@@ -53,19 +59,8 @@ while True:
         else:
             print(Fore.RED + "_", end=" ")
     if correct_Guessed_Characters != 5:
-        while True:
-            try:
-                user_Word = input("\nWrong guess, try again: ")
-                if len(user_Word) != 5:
-                    raise ValueError
-                elif not re.match(r"^[A-Za-z]+$", user_Word):
-                    raise Exception
-                break
-            except ValueError:
-                print("\nWrong input, your word should be 5 letters long!\n")
-            except Exception:
-                print("\nWrong input, please write only letters A-Z\n")
-        user_Word_Characters = list(user_Word.upper())
+        print("WRONG GUESS\n")
+        user_Word_Characters = check_User_Input()
     elif correct_Guessed_Characters == 5:
         break
 
