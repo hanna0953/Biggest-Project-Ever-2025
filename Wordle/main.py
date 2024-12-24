@@ -38,24 +38,36 @@ while True:
 user_Word_Characters = list(user_Word.upper())
 # print(user_Word_Characters)
 
-# Check for similarities between Game Word and User Word
-matches = [i for i in game_Word_Characters if i in user_Word_Characters]
+# FIXME when imputing completely wrong letter, fails to check for the elif, still checks for if
+# TODO make it so duplicates dont count for the elif check
+check = all(e in game_Word_Characters for e in user_Word_Characters)
 for i in range(5):
-    try:
-        if i < 4:
-            print(Fore.GREEN + matches[i], end=" ")
-        else:
-            print(Fore.GREEN  + matches[i])
-    except IndexError:
-        if i < 4:
-            print(Fore.RED + "_ ", end=" ")
-        else:
-            print(Fore.RED + "_ ")
+    if game_Word_Characters[i] == user_Word_Characters[i]:
+        print(Fore.GREEN + game_Word_Characters[i], end=" ")
+    elif check == True:
+        print(Fore.YELLOW + user_Word_Characters[i], end=" ")
+    else:
+        print(Fore.RED + "_", end=" ")
+          
 
-# Colors for letters (for future)
-print(Fore.YELLOW + 'Color for good letters on wrong spot')
-print(Fore.GREEN + 'Color for good letters on good spot')
-print(Style.RESET_ALL)
+# Check for similarities between Game Word and User Word (OLD)
+# matches = [i for i in game_Word_Characters if i in user_Word_Characters]
+# for i in range(5):
+#     try:
+#         if i < 4:
+#             print(Fore.GREEN + matches[i], end=" ")
+#         else:
+#             print(Fore.GREEN  + matches[i])
+#     except IndexError:
+#         if i < 4:
+#             print(Fore.RED + "_ ", end=" ")
+#         else:
+#             print(Fore.RED + "_ ")
+
+# # Colors for letters (for future)
+# print(Fore.YELLOW + 'Color for good letters on wrong spot')
+# print(Fore.GREEN + 'Color for good letters on good spot')
+# print(Style.RESET_ALL)
 
 # TO DO 
 # Add an array for wrong letters
