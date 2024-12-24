@@ -1,18 +1,19 @@
-# Data for the five letter words has been aquired from previous WORDLE games 
+# Data for the five letter words has been aquired from previous WORDLE games
 # available at https://www.nytimes.com/games/wordle/index.html
-from colorama import Fore, Style
-from pathlib import Path
-import re
 import random
+import re
+from pathlib import Path
+
+from colorama import Fore, Style
 
 user_Round_Count = 0
 
 # Random word generation and converts it to a list of characters
-path_To_Words = Path(__file__).with_name('fiveletterwords.txt')
-with path_To_Words.open('r') as words:
+path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
+with path_To_Words.open("r") as words:
     content = words.readlines()
     total_Word_Count = len(content)
-    words.close()  
+    words.close()
 random_Number = random.randint(0, total_Word_Count - 1)
 game_Word = content[random_Number]
 game_Word_Characters = list(game_Word[:-1])
@@ -23,18 +24,18 @@ print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
 # Makes user add his word and checks if it's 5 letters
 while True:
     try:
-        user_Word = input('Write your guess here: ')
+        user_Word = input("Write your guess here: ")
         if len(user_Word) != 5:
             raise ValueError
         elif not re.match(r"^[A-Za-z]+$", user_Word):
             raise Exception
-        break 
+        break
     except ValueError:
         print("\nWrong input, your word should be 5 letters long!\n")
     except Exception:
         print("\nWrong input, please write only letters A-Z\n")
 
-# Converts user input to Uppercase 
+# Converts user input to Uppercase
 user_Word_Characters = list(user_Word.upper())
 # print(user_Word_Characters)
 # FIXME when imputing completely wrong letter, fails to check for the elif, still checks for if
@@ -43,16 +44,27 @@ check = all(e in game_Word_Characters for e in user_Word_Characters)
 while True:
     correct_Guessed_Characters = 0
     for i in range(5):
-      if game_Word_Characters[i] == user_Word_Characters[i]:
+        if game_Word_Characters[i] == user_Word_Characters[i]:
             print(Fore.GREEN + game_Word_Characters[i], end=" ")
-            correct_Guessed_Characters +=1
+            correct_Guessed_Characters += 1
 
-      elif check == True:
-              print(Fore.YELLOW + user_Word_Characters[i], end=" ")
-      else:
-          print(Fore.RED + "_", end=" ")
+        elif check == True:
+            print(Fore.YELLOW + user_Word_Characters[i], end=" ")
+        else:
+            print(Fore.RED + "_", end=" ")
     if correct_Guessed_Characters != 5:
-        user_Word = input("\nWrong answer, try again:\n")
+        while True:
+            try:
+                user_Word = input("\nWrong guess, try again: ")
+                if len(user_Word) != 5:
+                    raise ValueError
+                elif not re.match(r"^[A-Za-z]+$", user_Word):
+                    raise Exception
+                break
+            except ValueError:
+                print("\nWrong input, your word should be 5 letters long!\n")
+            except Exception:
+                print("\nWrong input, please write only letters A-Z\n")
         user_Word_Characters = list(user_Word.upper())
     elif correct_Guessed_Characters == 5:
         break
@@ -76,7 +88,7 @@ while True:
 # print(Fore.GREEN + 'Color for good letters on good spot')
 # print(Style.RESET_ALL)
 
-# TO DO 
+# TO DO
 # Add an array for wrong letters
 # For example if user guessed "A" and it was wrong do:
-# B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+# B C D E F G H I J K L M N O P Q R S T U V W X Y Z
