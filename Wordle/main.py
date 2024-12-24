@@ -37,18 +37,25 @@ while True:
 # Converts user input to Uppercase 
 user_Word_Characters = list(user_Word.upper())
 # print(user_Word_Characters)
-
 # FIXME when imputing completely wrong letter, fails to check for the elif, still checks for if
 # TODO make it so duplicates dont count for the elif check
 check = all(e in game_Word_Characters for e in user_Word_Characters)
-for i in range(5):
-    if game_Word_Characters[i] == user_Word_Characters[i]:
-        print(Fore.GREEN + game_Word_Characters[i], end=" ")
-    elif check == True:
-        print(Fore.YELLOW + user_Word_Characters[i], end=" ")
-    else:
-        print(Fore.RED + "_", end=" ")
-          
+while True:
+    correct_Guessed_Characters = 0
+    for i in range(5):
+      if game_Word_Characters[i] == user_Word_Characters[i]:
+            print(Fore.GREEN + game_Word_Characters[i], end=" ")
+            correct_Guessed_Characters +=1
+
+      elif check == True:
+              print(Fore.YELLOW + user_Word_Characters[i], end=" ")
+      else:
+          print(Fore.RED + "_", end=" ")
+    if correct_Guessed_Characters != 5:
+        user_Word = input("\nWrong answer, try again:\n")
+        user_Word_Characters = list(user_Word.upper())
+    elif correct_Guessed_Characters == 5:
+        break
 
 # Check for similarities between Game Word and User Word (OLD)
 # matches = [i for i in game_Word_Characters if i in user_Word_Characters]
