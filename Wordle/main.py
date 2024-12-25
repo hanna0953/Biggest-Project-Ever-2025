@@ -46,8 +46,8 @@ user_Word_Characters = check_User_Input()
 # print(user_Word_Characters)
 # FIXME when imputing completely wrong letter, fails to check for the elif, still checks for if
 # TODO make it so duplicates dont count for the elif check
-check = all(e in game_Word_Characters for e in user_Word_Characters)
 while True:
+    check = all(e in user_Word_Characters for e in game_Word_Characters)
     correct_Guessed_Characters = 0
     for i in range(5):
         if game_Word_Characters[i] == user_Word_Characters[i]:
