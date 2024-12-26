@@ -1,49 +1,16 @@
-# Data for the five letter words has been aquired from previous WORDLE games 
-# # available at https://www.nytimes.com/games/wordle/index.html
-# from pathlib import Path
-# import re
-# import random
-
-# user_Round_Count = 0
-
-# # Random word generation and converts it to a list of characters
-# path_To_Words = Path(__file__).with_name('fiveletterwords.txt')
-# with path_To_Words.open('r') as words:
-#     content = words.readlines()
-#     total_Word_Count = len(content)
-#     random_Number = random.randint(0, total_Word_Count - 1)
-#     game_Word = content[random_Number]
-#     game_Word_Characters = list(game_Word[:-1])
-#     print(game_Word_Characters)
-#     words.close()  
-
-# print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
-
-# # Makes user add his word and checks if it's 5 letters
-# while True:
-#     try:
-#         user_Word = input('Write your guess here: ')
-#         if len(user_Word) != 5:
-#             raise ValueError
-#         elif not re.match(r"^[A-Za-z]+$", user_Word):
-#             raise Exception
-#         break 
-#     except ValueError:
-#         print("\nWrong input, your word should be 5 letters long!\n")
-#     except Exception:
-#         print("\nWrong input, please write only letters A-Z\n")
-
-# # Converts user input to Uppercase 
-# user_Word_Characters = list(user_Word.upper())
-# # print(user_Word_Characters)
-
-# # print(game_Word_Characters == user_Word_Characters)
-# # def compare(game_Word_Characters, user_Word_Characters):
-# #     for x, y in zip(game_Word_Characters, user_Word_Characters):
-# #         if x == y:
-# #             print(x)
-# #         else:
-# #             print('_')
-
-# set(game_Word_Characters).intersection(user_Word_Characters)
-
+while True:
+    check = all(e in user_Word_Characters for e in game_Word_Characters)
+    correct_Guessed_Characters = 0
+    for i in range(5):
+        if game_Word_Characters[i] == user_Word_Characters[i]:
+            print(Fore.GREEN + game_Word_Characters[i] + Style.RESET_ALL, end=" ")
+            correct_Guessed_Characters += 1
+        elif check == True:
+            print(Fore.YELLOW + user_Word_Characters[i] + Style.RESET_ALL, end=" ")
+        else:
+            print(Fore.RED + "_" + Style.RESET_ALL, end=" ")
+    if correct_Guessed_Characters != 5:
+        print("WRONG GUESS\n")
+        user_Word_Characters = check_User_Input()
+    elif correct_Guessed_Characters == 5:
+        break

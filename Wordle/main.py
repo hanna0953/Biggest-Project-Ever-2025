@@ -44,21 +44,22 @@ user_Word_Characters = check_User_Input()
 
 # Converts user input to Uppercase
 # print(user_Word_Characters)
-# FIXME when imputing completely wrong letter, fails to check for the elif, still checks for if
-# TODO make it so duplicates dont count for the elif check
+wrongly_Guessed_Characters = []
 while True:
-    check = all(e in user_Word_Characters for e in game_Word_Characters)
     correct_Guessed_Characters = 0
     for i in range(5):
         if game_Word_Characters[i] == user_Word_Characters[i]:
             print(Fore.GREEN + game_Word_Characters[i] + Style.RESET_ALL, end=" ")
             correct_Guessed_Characters += 1
-        elif check == True:
+        elif user_Word_Characters[i] in game_Word_Characters:
             print(Fore.YELLOW + user_Word_Characters[i] + Style.RESET_ALL, end=" ")
         else:
             print(Fore.RED + "_" + Style.RESET_ALL, end=" ")
+            if user_Word_Characters[i] not in wrongly_Guessed_Characters:
+                wrongly_Guessed_Characters.extend(user_Word_Characters[i])
     if correct_Guessed_Characters != 5:
-        print("WRONG GUESS\n")
+        print("WRONG GUESS")
+        print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
         user_Word_Characters = check_User_Input()
     elif correct_Guessed_Characters == 5:
         break
