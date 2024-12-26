@@ -10,6 +10,16 @@ from colorama import Fore, Style
 
 # word_Check = enchant.Dict("en_US")
 
+# DOESNT WORK (yet)
+# path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
+# def search_Word_Func():
+#     with path_To_Words.open("r") as database:
+#         contents = words.readlines()
+#         if user_Word_Characters in contents:
+#             return True
+#         else:
+#             return False
+
 def check_User_Input():
     while True:
         try:
@@ -18,12 +28,16 @@ def check_User_Input():
                 raise ValueError
             elif not re.match(r"^[A-Za-z]+$", user_Word):
                 raise Exception
+            # elif search_Word_Func == False:
+            #     raise TypeError
             user_Word_Characters = list(user_Word.upper())
             return user_Word_Characters
         except ValueError:
             print("\nWrong input, your word should be 5 letters long!\n")
         except Exception:
             print("\nWrong input, please write only letters A-Z\n")
+        # except TypeError:
+        #     print("\nWrong input, word doesn't exist\n")
 
 user_Round_Count = 0
 
