@@ -1,11 +1,14 @@
 # Data for the five letter words has been aquired from previous WORDLE games
-# available at https://www.nytimes.com/games/wordle/index.html
+# (real) WORDLE available at https://www.nytimes.com/games/wordle/index.html
+# Dataset taken from https://www.rockpapershotgun.com/wordle-past-answers
 import random
 import re
 from pathlib import Path
 
+# import enchant
 from colorama import Fore, Style
 
+# word_Check = enchant.Dict("en_US")
 
 def check_User_Input():
     while True:
@@ -22,7 +25,6 @@ def check_User_Input():
         except Exception:
             print("\nWrong input, please write only letters A-Z\n")
 
-
 user_Round_Count = 0
 
 # Random word generation and converts it to a list of characters
@@ -37,7 +39,6 @@ game_Word_Characters = list(game_Word[:-1])
 print(game_Word_Characters)
 
 print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
-
 
 # Makes user add his word and checks if it's 5 letters
 user_Word_Characters = check_User_Input()
@@ -59,31 +60,15 @@ while True:
                 wrongly_Guessed_Characters.extend(user_Word_Characters[i])
     if correct_Guessed_Characters != 5:
         print("WRONG GUESS")
-        print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
-        user_Word_Characters = check_User_Input()
+        if len(wrongly_Guessed_Characters) > 0:
+            print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
+        user_Word_Characters = check_User_Input() 
     elif correct_Guessed_Characters == 5:
+        print("\nYou won!")
         break
 
-# Check for similarities between Game Word and User Word (OLD)
-# matches = [i for i in game_Word_Characters if i in user_Word_Characters]
-# for i in range(5):
-#     try:
-#         if i < 4:
-#             print(Fore.GREEN + matches[i], end=" ")
-#         else:
-#             print(Fore.GREEN  + matches[i])
-#     except IndexError:
-#         if i < 4:
-#             print(Fore.RED + "_ ", end=" ")
-#         else:
-#             print(Fore.RED + "_ ")
-
-# # Colors for letters (for future)
-# print(Fore.YELLOW + 'Color for good letters on wrong spot')
-# print(Fore.GREEN + 'Color for good letters on good spot')
-# print(Style.RESET_ALL)
-
-# TO DO
-# Add an array for wrong letters
-# For example if user guessed "A" and it was wrong do:
-# B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+# TODO 
+# remove showing letter when its already guessed and doesnt appear a second time
+# Loop game
+# Count rounds
+# Check if word exists in database, dont take words that dont exist
