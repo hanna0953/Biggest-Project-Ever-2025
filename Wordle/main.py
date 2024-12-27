@@ -5,8 +5,7 @@ import random
 import re
 from pathlib import Path
 
-from colorama import Fore, Style
-
+from colorama import Fore, Style # type: ignore
 
 # DOESNT WORK (yet)
 # path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
@@ -37,7 +36,6 @@ def check_User_Input():
         # except TypeError:
         #     print("\nWrong input, word doesn't exist\n")
 
-
 # Random word generation and converts it to a list of characters
 path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 with path_To_Words.open("r") as words:
@@ -49,7 +47,7 @@ game_Word = content[random_Number]
 game_Word_Characters = list(game_Word[:-1])
 print(game_Word_Characters)
 
-print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
+print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\nRound 1 / 7")
 user_Guess_Count = 1
 user_Word_Characters = check_User_Input()
 wrongly_Guessed_Characters = []
@@ -70,6 +68,7 @@ while True:
         if len(wrongly_Guessed_Characters) > 0 and user_Guess_Count < 7:
             print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
             user_Guess_Count += 1
+            print("Round:", user_Guess_Count, "/ 7")
             user_Word_Characters = check_User_Input()
         else:
             print("You lost!")
