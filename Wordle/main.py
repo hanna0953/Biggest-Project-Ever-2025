@@ -5,10 +5,8 @@ import random
 import re
 from pathlib import Path
 
-# import enchant
 from colorama import Fore, Style
 
-# word_Check = enchant.Dict("en_US")
 
 def check_User_Input():
     while True:
@@ -25,7 +23,6 @@ def check_User_Input():
         except Exception:
             print("\nWrong input, please write only letters A-Z\n")
 
-user_Round_Count = 0
 
 # Random word generation and converts it to a list of characters
 path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
@@ -39,12 +36,8 @@ game_Word_Characters = list(game_Word[:-1])
 print(game_Word_Characters)
 
 print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\n")
-
-# Makes user add his word and checks if it's 5 letters
+user_Guess_Count = 1
 user_Word_Characters = check_User_Input()
-
-# Converts user input to Uppercase
-# print(user_Word_Characters)
 wrongly_Guessed_Characters = []
 while True:
     correct_Guessed_Characters = 0
@@ -60,14 +53,18 @@ while True:
                 wrongly_Guessed_Characters.extend(user_Word_Characters[i])
     if correct_Guessed_Characters != 5:
         print("WRONG GUESS")
-        if len(wrongly_Guessed_Characters) > 0:
+        if len(wrongly_Guessed_Characters) > 0 and user_Guess_Count < 7:
             print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
-        user_Word_Characters = check_User_Input() 
+            user_Guess_Count += 1
+            user_Word_Characters = check_User_Input()
+        else:
+            print("You lost!")
+            break
     elif correct_Guessed_Characters == 5:
         print("\nYou won!")
         break
 
-# TODO 
+# TODO
 # remove showing letter when its already guessed and doesnt appear a second time
 # Loop game
 # Count rounds
