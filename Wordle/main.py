@@ -5,7 +5,7 @@ import random
 import re
 from pathlib import Path
 
-from colorama import Fore, Style # type: ignore
+from colorama import Fore, Style  # type: ignore
 
 # DOESNT WORK (yet)
 # path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
@@ -16,6 +16,7 @@ from colorama import Fore, Style # type: ignore
 #             return True
 #         else:
 #             return False
+
 
 def check_User_Input():
     while True:
@@ -35,6 +36,7 @@ def check_User_Input():
             print("\nWrong input, please write only letters A-Z\n")
         # except TypeError:
         #     print("\nWrong input, word doesn't exist\n")
+
 
 # Random word generation and converts it to a list of characters
 path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
@@ -65,13 +67,16 @@ while True:
                 wrongly_Guessed_Characters.extend(user_Word_Characters[i])
     if correct_Guessed_Characters != 5:
         print("WRONG GUESS")
-        if len(wrongly_Guessed_Characters) > 0 and user_Guess_Count < 7:
+        user_Guess_Count += 1
+        if user_Guess_Count > 7:
+            print("You lost!")
+            break
+        elif len(wrongly_Guessed_Characters) > 0 and user_Guess_Count <= 7:
             print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
-            user_Guess_Count += 1
             print("Round:", user_Guess_Count, "/ 7")
             user_Word_Characters = check_User_Input()
         else:
-            print("You lost!")
+            print("Error! Restarting game")
             break
     elif correct_Guessed_Characters == 5:
         print("\nYou won!")
