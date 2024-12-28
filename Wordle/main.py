@@ -71,8 +71,11 @@ while True:
         if user_Guess_Count > 7:
             print("You lost!")
             break
-        elif len(wrongly_Guessed_Characters) > 0 and user_Guess_Count <= 7:
-            print("Word doesn't contain these letters: ", wrongly_Guessed_Characters)
+        elif user_Guess_Count <= 7:
+            if len(wrongly_Guessed_Characters) > 0:
+                print(
+                    "Word doesn't contain these letters: ", wrongly_Guessed_Characters
+                )
             print("Round:", user_Guess_Count, "/ 7")
             user_Word_Characters = check_User_Input()
         else:
