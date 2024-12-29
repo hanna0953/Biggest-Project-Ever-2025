@@ -7,39 +7,38 @@ from pathlib import Path
 
 from colorama import Fore, Style  # type: ignore
 
-# DOESNT WORK (yet)
-# path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
-# def search_Word_Func():
-#     with path_To_Words.open("r") as database:
-#         contents = words.readlines()
-#         if user_Word_Characters in contents:
-#             return True
-#         else:
-#             return False
+path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 
+def search_Word_Func(user_Word):
+    try:
+        with path_To_Words.open("r") as database:
+            content = {line.strip().upper() for line in database}
+            return user_Word.upper() in content
+    except FileNotFoundError:
+        print("Error: Word database file not found!")
+        return False
 
 def check_User_Input():
     while True:
         try:
-            user_Word = input("Write your guess here: ")
+            user_Word = input("Write your guess here: ").strip()
             if len(user_Word) != 5:
                 raise ValueError
             elif not re.match(r"^[A-Za-z]+$", user_Word):
                 raise Exception
-            # elif search_Word_Func == False:
-            #     raise TypeError
+            elif not search_Word_Func(user_Word):
+                raise TypeError
             user_Word_Characters = list(user_Word.upper())
             return user_Word_Characters
         except ValueError:
             print("\nWrong input, your word should be 5 letters long!\n")
         except Exception:
             print("\nWrong input, please write only letters A-Z\n")
-        # except TypeError:
-        #     print("\nWrong input, word doesn't exist\n")
-
+        except TypeError:
+            print("\nWrong input, word doesn't exist in the database.\n")
 
 # Random word generation and converts it to a list of characters
-path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
+# path_To_Words = Path(__file__).with_name("fiveletterwords.txt") # Probably not needed cuz its above now
 with path_To_Words.open("r") as words:
     content = words.readlines()
     total_Word_Count = len(content)
