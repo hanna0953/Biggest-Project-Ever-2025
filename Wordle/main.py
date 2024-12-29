@@ -103,4 +103,4 @@ if __name__ == "__main__":
 # Remove showing letter when its already guessed and doesnt appear a second time
 # Loop game
 # Count rounds
-# Improve search_Word_Func, especially why it shows the wrong error on word REACH or FREAK
+# Check if word exists in database, dont take words that dont exist
