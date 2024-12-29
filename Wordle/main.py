@@ -21,21 +21,18 @@ def search_Word_Func(user_Word):
 def check_User_Input():
     while True:
         try:
-            user_Word = input("Write your guess here: ").strip()
+            user_Word = input("Write your guess here: ").strip() # strip works very nice with accident spacebar input
             if len(user_Word) != 5:
-                raise ValueError
-            elif not re.match(r"^[A-Za-z]+$", user_Word):
-                raise Exception
-            elif not search_Word_Func(user_Word):
-                raise TypeError
-            user_Word_Characters = list(user_Word.upper())
-            return user_Word_Characters
-        except ValueError:
-            print("\nWrong input, your word should be 5 letters long!\n")
-        except Exception:
-            print("\nWrong input, please write only letters A-Z\n")
-        except TypeError:
-            print("\nWrong input, word doesn't exist in the database.\n")
+                raise ValueError("Word must be exactly 5 letters long.")
+            if not user_Word.isalpha():
+                raise ValueError("Word must contain only letters A-Z.") # sometimes shows instead of search_Word_Func error, for example word: REACH
+            if not search_Word_Func(user_Word):
+                raise TypeError("Word doesn't exist in the database.")
+            return list(user_Word.upper())
+        except ValueError as e:
+            print(f"\nWrong input: {e}\n")
+        except TypeError as e:
+            print(f"\nWrong input: {e}\n")
 
 # Random word generation and converts it to a list of characters
 # path_To_Words = Path(__file__).with_name("fiveletterwords.txt") # Probably not needed cuz its above now
@@ -85,7 +82,7 @@ while True:
         break
 
 # TODO
-# remove showing letter when its already guessed and doesnt appear a second time
+# Remove showing letter when its already guessed and doesnt appear a second time
 # Loop game
 # Count rounds
-# Check if word exists in database, dont take words that dont exist
+# Improve search_Word_Func, especially why it shows the wrong error on word REACH or FREAK
