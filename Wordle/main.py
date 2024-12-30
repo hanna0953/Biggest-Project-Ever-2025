@@ -52,8 +52,9 @@ def play_Round():
     game_Word = content[random_Number]
     game_Word_Characters = list(game_Word[:-1])
     print(game_Word_Characters)
-
-    print("\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\nRound 1 / 7")
+    print(
+        "\nWelcome to WORDLE!\nYour word: _ _ _ _ _\n\nGuess 1 / 7",
+    )
     user_Guess_Count = 1
     user_Word_Characters = check_User_Input()
     wrongly_Guessed_Characters = []
@@ -90,14 +91,19 @@ def play_Round():
             print("\nYou won!")
             break
 
+
 def main():
     play_Round()
     while True:
-        resp = input("Would you like to play another round? (y/n)\n")
-        if resp.lower() == "y":
+        resp = input("Would you like to play another round? (Y/n)\n")
+        if resp.lower() == "y" or len(resp) == 0:
             play_Round()
-        else: 
+        elif resp.lower() == "n":
+            print("Thanks for playing!")
             break
+        else:
+            print("Please input Y/n")
+
 
 if __name__ == "__main__":
     main()
