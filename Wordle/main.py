@@ -90,11 +90,14 @@ def play_Round():
             print("\nYou won!")
             break
 
-
 def main():
+    play_Round()
     while True:
-        play_Round()
-
+        resp = input("Would you like to play another round? (y/n)\n")
+        if resp.lower() == "y":
+            play_Round()
+        else: 
+            break
 
 if __name__ == "__main__":
     main()
