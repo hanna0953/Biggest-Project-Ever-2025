@@ -9,6 +9,7 @@ from colorama import Fore, Style  # type: ignore
 
 path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 
+game_Counter = 0
 
 def search_Word_Func(user_Word):
     try:
@@ -18,7 +19,6 @@ def search_Word_Func(user_Word):
     except FileNotFoundError:
         print("Error: Word database file not found!")
         return False
-
 
 def check_User_Input():
     while True:
@@ -40,8 +40,10 @@ def check_User_Input():
         except TypeError as e:
             print(f"\nWrong input: {e}\n")
 
-
 def play_Round():
+    global game_Counter  # Access the global game counter
+    game_Counter += 1
+
     # Random word generation and converts it to a list of characters
     # path_To_Words = Path(__file__).with_name("fiveletterwords.txt") # Probably not needed cuz its above now
     with path_To_Words.open("r") as words:
@@ -94,8 +96,11 @@ def main():
     play_Round()
     while True:
         resp = input("Would you like to play another round? (y/n)\n")
-        if resp.lower() == "y":
+        if resp.lower() == "y" or resp.lower() == " ":
             play_Round()
+        elif resp.lower() == "n":
+            print("Thanks for playing")
+            print(f"Total rounds played: {game_Counter}")
         else: 
             break
 
