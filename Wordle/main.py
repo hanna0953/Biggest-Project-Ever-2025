@@ -1,16 +1,15 @@
 # Data for the five letter words has been aquired from previous WORDLE games
 # (real) WORDLE available at https://www.nytimes.com/games/wordle/index.html
 # Dataset taken from https://www.rockpapershotgun.com/wordle-past-answers
-import random
-import re
-from pathlib import Path
 
+import random
+# import re
+from pathlib import Path
 from colorama import Fore, Style  # type: ignore
 
 path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 
 game_Counter = 0
-
 
 def search_Word_Func(user_Word):
     try:
@@ -21,34 +20,32 @@ def search_Word_Func(user_Word):
         print("Error: Word database file not found!")
         return False
 
-
 def check_User_Input():
     while True:
         try:
             user_Word = input(
                 "Write your guess here: "
-            ).strip()  # strip works very nice with accident spacebar input
+            ).strip()
             if len(user_Word) != 5:
                 raise ValueError("Word must be exactly 5 letters long.")
             if not user_Word.isalpha():
                 raise ValueError(
                     "Word must contain only letters A-Z."
-                )  # sometimes shows instead of search_Word_Func error, for example word: REACH
-            # if not search_Word_Func(user_Word):
-            #     raise TypeError("Word doesn't exist in the database.")
+                )
+            if not search_Word_Func(user_Word):
+                raise TypeError("Word doesn't exist in the database.")
             return list(user_Word.upper())
         except ValueError as e:
             print(f"\nWrong input: {e}\n")
         except TypeError as e:
             print(f"\nWrong input: {e}\n")
 
-
 def play_Round():
-    global game_Counter  # Access the global game counter
+    global game_Counter
     game_Counter += 1
     print("Game Counter: ", game_Counter)
+    
     # Random word generation and converts it to a list of characters
-    # path_To_Words = Path(__file__).with_name("fiveletterwords.txt") # Probably not needed cuz its above now
     with path_To_Words.open("r") as words:
         content = words.readlines()
         total_Word_Count = len(content)
@@ -105,7 +102,6 @@ def play_Round():
             print("\nYou won!")
             break
 
-
 def main():
     play_Round()
     while True:
@@ -119,12 +115,8 @@ def main():
         else:
             print("Please input Y/n")
 
-
 if __name__ == "__main__":
     main()
 
 # TODO
 # Remove showing letter when its already guessed and doesnt appear a second time
-# Loop game
-# Count rounds
-# Check if word exists in database, dont take words that dont exist
