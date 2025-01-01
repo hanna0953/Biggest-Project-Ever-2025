@@ -34,8 +34,8 @@ def check_User_Input():
                 raise ValueError(
                     "Word must contain only letters A-Z."
                 )  # sometimes shows instead of search_Word_Func error, for example word: REACH
-            if not search_Word_Func(user_Word):
-                raise TypeError("Word doesn't exist in the database.")
+            # if not search_Word_Func(user_Word):
+            #     raise TypeError("Word doesn't exist in the database.")
             return list(user_Word.upper())
         except ValueError as e:
             print(f"\nWrong input: {e}\n")
@@ -65,12 +65,21 @@ def play_Round():
     wrongly_Guessed_Characters = []
     while True:
         correct_Guessed_Characters = 0
+        duplicate_Characters = []
+        already_Guessed_Characters = []
         for i in range(5):
             if game_Word_Characters[i] == user_Word_Characters[i]:
                 print(Fore.GREEN + game_Word_Characters[i] + Style.RESET_ALL, end=" ")
                 correct_Guessed_Characters += 1
-            elif user_Word_Characters[i] in game_Word_Characters:
+                already_Guessed_Characters.append(user_Word_Characters[i])
+                print("green", already_Guessed_Characters)
+            elif (
+                user_Word_Characters[i] in game_Word_Characters
+                and user_Word_Characters[i] not in already_Guessed_Characters
+            ):
                 print(Fore.YELLOW + user_Word_Characters[i] + Style.RESET_ALL, end=" ")
+                already_Guessed_Characters.append(user_Word_Characters[i])
+                print("yellow", already_Guessed_Characters)
             else:
                 print(Fore.RED + "_" + Style.RESET_ALL, end=" ")
                 if user_Word_Characters[i] not in wrongly_Guessed_Characters:
