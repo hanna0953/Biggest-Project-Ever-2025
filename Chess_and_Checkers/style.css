@@ -28,3 +28,17 @@ h1 {
 .checkers-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
 .checkers-board .light { background: #eee; }
 .checkers-board .dark { background: #aaa; }
+.checkers-board .dark .dot {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    display: inline-block;
+  }
+.checkers-board .light .dot {
+    height: 25px;
+    width: 25px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+}
