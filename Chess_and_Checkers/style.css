@@ -1,14 +1,33 @@
-h1 {
-    text-align: center;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    margin: 0;
 }
 
-.main_buttons {
-    padding: 50px 100px 50px 100px;
-    margin: 100px;
+div.main_buttons button.chess_button {
+    background-color: #eee;
+    color: #000;
 }
-
-.buttonsDiv {
-    text-align: center;
+div.main_buttons button.checkers_button {
+    background-color: #000;
+    color: #eee;
+}
+div.main_buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5vw 5vw 5vw 5vw;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #eee;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+div.main_buttons button:hover {
+    transform: scale(1.1);
 }
 
 .chess-board { border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-right: auto; }
