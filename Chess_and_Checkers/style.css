@@ -7,22 +7,23 @@ body {
     margin: 0;
 }
 
-div.main_buttons button.chess_button {
+img {
+    padding: 20px;
+    width: 15em;
+    margin-left: auto;
+    margin-right: auto;
+    /* TODO change image to be square */
+}
+
+div.main_buttons buttons {
     background-color: #eee;
     color: #000;
 }
-div.main_buttons button.checkers_button {
-    background-color: #000;
-    color: #eee;
-}
+
 div.main_buttons button {
     font-size: 16px;
-    padding: 10px 20px;
+    /* TODO add text orientation to be in the middle or completely remove it */
     margin: 5vw 5vw 5vw 5vw;
-    border: 2px solid #000;
-    border-radius: 5px;
-    background-color: #eee;
-    color: #000;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -53,6 +54,7 @@ div.main_buttons button:hover {
     background-color: #eee;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
   }
 .checkers-board .light .dot {
     height: 25px;
@@ -60,4 +62,5 @@ div.main_buttons button:hover {
     background-color: #000;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
 }
