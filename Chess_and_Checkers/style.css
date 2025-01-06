@@ -44,18 +44,18 @@ div.main_buttons button:hover {
 }
 
 .chess-board { border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-right: auto; }
-.chess-board th { padding: .5em; }
+.chess-board th { padding: .5em; cursor: default;}
 .chess-board th + th { border-bottom: 1px solid #000; }
 .chess-board th:first-child,
 .chess-board td:last-child { border-right: 1px solid #000; }
 .chess-board tr:last-child td { border-bottom: 1px solid; }
 .chess-board th:empty { border: none; }
 .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
-.chess-board .light { background: #eee; }
-.chess-board .dark { background: #aaa; }
+.chess-board .light { background: #eee; cursor: pointer;}
+.chess-board .dark { background: #aaa; cursor: pointer;}
 
 .checkers-board { border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-right: auto; }
-.checkers-board th { padding: .5em; }
+.checkers-board th { padding: .5em; cursor: default;}
 .checkers-board td { border: 1px solid; width: 2em; height: 2em; }
 .checkers-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
 .checkers-board .light { background: #eee; }
