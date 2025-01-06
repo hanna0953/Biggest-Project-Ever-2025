@@ -42,6 +42,8 @@ div.main_buttons button:hover {
 .chess-board .light { background: #eee; }
 .chess-board .dark { background: #aaa; }
 
+
+/*  OLD CODE
 .checkers-board { border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-right: auto; }
 .checkers-board th { padding: .5em; }
 .checkers-board td { border: 1px solid; width: 2em; height: 2em; }
@@ -63,4 +65,79 @@ div.main_buttons button:hover {
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
+} */
+
+/* NEW CODE */
+#checkers {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+    overflow: overlay;
+}
+
+#wrap {
+    display: block;
+    margin: 1rem auto;
+    max-width: 90%;
+    width: 600px;
+    padding: 1rem;
+}
+
+#checkers-board {
+    border: solid 3pc black;
+    background-color: #eee;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    max-width: 12.5%;
+    text-align: center;
+    display: inline-block;
+}
+
+.square.white, .checkers-piece i.black {
+    background-color: white;
+}
+
+.square.black, .checkers-piece i.white {
+    background-color: #000;
+}
+
+.checkers-piece i.black {color: black; border: solid 1px black}
+.checkers-piece i.white {color: white; border: solid 1px white}
+
+.checkers-piece i {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    max-width: 90%;
+}
+
+.checkers-panel {padding: 0.5rem; margin: 1rem auto;}
+.checkers-panel-header {text-align:center;}
+.checkers-panel.white {background: white;}
+.checkers-panel.black {background: black;}
+.white-text {color: white;}
+.taken-pieces {padding: 0.5rem;}
+.checkers-panel.white .taken-pieces {border: solid 1px black; border-radius: 30px;}
+.checkers-panel.black .taken-pieces {border: solid 1px white; border-radius: 30px;}
+
+@media screen and (max-width:1024px) {
+    .checkers-piece i {
+      margin-top: 0.5rem; width: 15px; height: 15px;
+      padding: 0.3rem; line-height: 0.5;
+    }
+    .square {height: 80px; width: 80px;}
 }
