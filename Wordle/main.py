@@ -3,13 +3,14 @@
 # Dataset taken from https://www.rockpapershotgun.com/wordle-past-answers
 
 import random
-# import re
 from pathlib import Path
+
 from colorama import Fore, Style  # type: ignore
 
 path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 
 game_Counter = 0
+
 
 def search_Word_Func(user_Word):
     try:
@@ -20,18 +21,15 @@ def search_Word_Func(user_Word):
         print("Error: Word database file not found!")
         return False
 
+
 def check_User_Input():
     while True:
         try:
-            user_Word = input(
-                "Write your guess here: "
-            ).strip()
+            user_Word = input("Write your guess here: ").strip()
             if len(user_Word) != 5:
                 raise ValueError("Word must be exactly 5 letters long.")
             if not user_Word.isalpha():
-                raise ValueError(
-                    "Word must contain only letters A-Z."
-                )
+                raise ValueError("Word must contain only letters A-Z.")
             if not search_Word_Func(user_Word):
                 raise TypeError("Word doesn't exist in the database.")
             return list(user_Word.upper())
@@ -40,12 +38,12 @@ def check_User_Input():
         except TypeError as e:
             print(f"\nWrong input: {e}\n")
 
+
 def play_Round():
     global game_Counter
     game_Counter += 1
     print("Game Counter: ", game_Counter)
-    
-    # Random word generation and converts it to a list of characters
+
     with path_To_Words.open("r") as words:
         content = words.readlines()
         total_Word_Count = len(content)
@@ -102,6 +100,7 @@ def play_Round():
             print("\nYou won!")
             break
 
+
 def main():
     play_Round()
     while True:
@@ -114,6 +113,7 @@ def main():
             break
         else:
             print("Please input Y/n")
+
 
 if __name__ == "__main__":
     main()
