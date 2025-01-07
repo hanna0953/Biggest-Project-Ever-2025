@@ -43,6 +43,11 @@ div.main_buttons button:hover {
     transform: scale(1.1);
 }
 
+/* TODO definitely find a better way to do this, not only css but mainly html too */
+/* perhaps doing this in js would be smarter */
+/* maybe create the board in html somehow and then do the figures on top of it */
+/* if this is too hard then try to do the whole board and figure creation in js */
+/* so that moving them should be easier to make */
 .chess-board { border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-right: auto; }
 .chess-board th { padding: .5em; cursor: default;}
 .chess-board th + th { border-bottom: 1px solid #000; }
