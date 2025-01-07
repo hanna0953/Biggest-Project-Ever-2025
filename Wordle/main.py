@@ -12,6 +12,7 @@ path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 game_Counter = 0
 
 
+# Searches database for a word matching user input
 def search_Word_Func(user_Word):
     try:
         with path_To_Words.open("r") as database:
@@ -22,6 +23,7 @@ def search_Word_Func(user_Word):
         return False
 
 
+# Accepts user input and checks it's validity
 def check_User_Input():
     while True:
         try:
@@ -39,6 +41,7 @@ def check_User_Input():
             print(f"\nWrong input: {e}\n")
 
 
+# Logic of the game
 def play_Round():
     global game_Counter
     game_Counter += 1
