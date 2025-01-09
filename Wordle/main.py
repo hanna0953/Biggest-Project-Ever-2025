@@ -119,6 +119,7 @@ def main():
             print("Please input Y/n")
 
 
+# ensures that a block of code is executed only when run directly and not when imported as a module into another script
 if __name__ == "__main__":
     main()
 
