@@ -9,6 +9,7 @@ body {
 
 h1 {
     cursor: default;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 img {
@@ -20,6 +21,9 @@ img {
 
 a .home_btn {
     border-radius: 5px;
+    border-width: 1px;
+    padding: 3px;
+    margin: 2px;
     cursor: pointer;
     color: #000;
     background-color: transparent;
