@@ -30,8 +30,8 @@ a .home_btn:hover {
 }
 
 div.main_buttons button {
-    height: 20em;
-    width: 20em;
+    height: 40em;
+    width: 40em;
     border: 0px;
     background: transparent;
     color: #000;
@@ -55,14 +55,14 @@ div.main_buttons button:hover {
 .chess-board td:last-child { border-right: 1px solid #000; }
 .chess-board tr:last-child td { border-bottom: 1px solid; }
 .chess-board th:empty { border: none; }
-.chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+.chess-board td { width: 2.5em; height: 2.5em; text-align: center; font-size: 32px; line-height: 0;}
 .chess-board .light { background: #eee; cursor: pointer;}
 .chess-board .dark { background: #aaa; cursor: pointer;}
 
 .checkers-board { border-spacing: 0; border-collapse: collapse; margin-left: auto; margin-right: auto; }
 .checkers-board th { padding: .5em; cursor: default;}
 .checkers-board td { border: 1px solid; width: 2em; height: 2em; }
-.checkers-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+.checkers-board td { width: 2.5em; height: 2.5em; text-align: center; font-size: 32px; line-height: 0;}
 .checkers-board .light { background: #eee; }
 .checkers-board .dark { background: #aaa; }
 .checkers-board .dark .dot {
