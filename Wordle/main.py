@@ -12,7 +12,7 @@ path_To_Words = Path(__file__).with_name("fiveletterwords.txt")
 game_Counter = 0
 
 
-# Searches database for a word matching user input
+# Searches database for a word matching user input, returns error if a matching word is not found
 def search_Word_Func(user_Word):
     try:
         with path_To_Words.open("r") as database:
