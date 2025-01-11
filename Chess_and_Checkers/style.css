@@ -12,25 +12,25 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 30px 0;
+    font-size: 2rem;
+    margin: 20px 0;
     color: #333;
     text-align: center;
-    font-weight: normal;
+    font-weight: 400;
     cursor: default;
 }
 
 img {
-    max-width: 90%;
-    max-height: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 80%;
+    max-height: 50vh;
+    margin: 20px 0;
+    object-fit: contain;
 }
 
 a .home_btn {
     display: inline-block;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 14px;
     color: #fff;
     background-color: #333;
     border: none;
@@ -45,18 +45,33 @@ a .home_btn:hover {
     background-color: #555;
 }
 
+div.main_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
 div.main_buttons button {
-    height: 40em;
-    width: 40em;
-    border: 0px;
+    flex: 0 1 auto;
+    max-width: 300px;
+    margin-top: 10%;
+    height: auto;
+    border: none;
     background: transparent;
     color: #000;
-    margin: 5vw 5vw 5vw 5vw;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 div.main_buttons button:hover {
     transform: scale(1.1);
+}
+div.main_buttons button h1 {
+    font-size: 1rem;
 }
 
 /* TODO definitely find a better way to do this, not only css but mainly html too */
