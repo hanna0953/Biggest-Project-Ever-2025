@@ -41,7 +41,7 @@ def check_User_Input():
             print(f"\nWrong input: {e}\n")
 
 
-# Logic of the game
+# Logic of the game, which checks for many conditions
 def play_Round():
     global game_Counter
     game_Counter += 1
