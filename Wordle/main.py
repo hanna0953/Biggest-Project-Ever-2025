@@ -104,7 +104,7 @@ def play_Round():
             break
 
 
-# main function which calls the play_Round function
+# main function which calls the play_Round function and asks the user if they want to play again
 def main():
     play_Round()
     while True:
