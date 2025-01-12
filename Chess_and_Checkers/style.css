@@ -76,22 +76,22 @@ button h1 {
     cursor: pointer;
 }
 
+.chess_button img {
+    left: -100%;
+}
+
+.checkers_button img {
+    left: 100%;
+}
+
 .chess_button:hover img {
     opacity: 1;
     transform: translateX(100%);
 }
 
-.chess_button img {
-    left: -100%;
-}
-
 .checkers_button:hover img {
     opacity: 1;
     transform: translateX(-100%);
-}
-
-.checkers_button img {
-    left: 100%;
 }
 
 a .home_btn {
