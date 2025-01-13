@@ -23,7 +23,7 @@ def search_Word_Func(user_Word):
         return False
 
 
-# Accepts user input and checks it's validity
+# Accepts user input and checks it's validity, such as lenght of the input, characters and if it exists in the database
 def check_User_Input():
     while True:
         try:
@@ -104,7 +104,7 @@ def play_Round():
             break
 
 
-# main function which calls the play_Round function
+# main function which calls the play_Round function and asks the user if they want to play again
 def main():
     play_Round()
     while True:
