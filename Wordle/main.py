@@ -23,7 +23,7 @@ def search_Word_Func(user_Word):
         return False
 
 
-# Accepts user input and checks it's validity
+# Accepts user input and checks it's validity, such as lenght of the input, characters and if it exists in the database
 def check_User_Input():
     while True:
         try:
