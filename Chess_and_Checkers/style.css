@@ -67,9 +67,9 @@ button h1 {
     z-index: 3;
     font-size: 2rem;
     text-transform: uppercase;
-    background: rgba(151, 136, 136, 0.6);
+    background: rgba(238, 232, 232, 0.6);
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: opacity 0.5s ease;
     position: relative;
