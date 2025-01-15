@@ -2,6 +2,7 @@
 # (real) WORDLE available at https://www.nytimes.com/games/wordle/index.html
 # Dataset taken from https://www.rockpapershotgun.com/wordle-past-answers
 
+# library imports at the top
 import random
 from pathlib import Path
 
