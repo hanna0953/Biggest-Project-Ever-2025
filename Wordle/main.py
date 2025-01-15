@@ -125,4 +125,4 @@ if __name__ == "__main__":
     main()
 
 # TODO
-# Remove showing letter when its already guessed and doesnt appear a second time
+# Remove showing letter when its already guessed and doesnt appear a second time, last important thing to do!
