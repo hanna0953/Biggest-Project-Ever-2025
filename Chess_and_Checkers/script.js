@@ -1,7 +1,7 @@
 // Initialize the board for the selected game (Chess or Checkers).
 // - Set up pieces in their starting positions.
 // - Define the board size and appearance.
-// - Prepare any necessary game state variables (e.g., turn, score).// Handle user interactions with the game:
+// - Prepare any necessary game state variables (e.g., turn, score).
 // Manage the game state:
 // - Track the current player's turn.
 // - Store the state of the board after each move.
